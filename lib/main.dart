@@ -15,11 +15,10 @@ class FriendlyChatApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'FriendlyChat',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('FriendlyChat'),
-        ),
-      ),
+      home: ChatScreen(),
     );
   }
+}
+
+class ChatScreen {
 }
