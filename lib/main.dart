@@ -40,6 +40,7 @@ class _ChatScreenState extends State<ChatScreen> {
     setState(() {
       _messages.insert(0, message);
     });
+    _focusNode.requestFocus();
   }
 
   @override
