@@ -29,6 +29,7 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _textController = TextEditingController();
+  final List<ChatMessage> _messages = [];
 
   void _handleSubmitted(String text) {
     _textController.clear();
