@@ -61,8 +61,8 @@ class _ChatScreenState extends State<ChatScreen> {
               child: TextField(
                 controller: _textController,
                 onSubmitted: _handleSubmitted,
-                decoration: InputDecoration.collapsed(
-                    hintText: 'Send a message'),
+                decoration: InputDecoration.collapsed(hintText: 'Send a message'),
+                focusNode: _focusNode,
               ),
             ),
             Container(
