@@ -6,6 +6,8 @@ void main() {
   );
 }
 
+String _name = 'David Comer';
+
 class FriendlyChatApp extends StatelessWidget {
   const FriendlyChatApp({
     Key key,
