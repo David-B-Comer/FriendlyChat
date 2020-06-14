@@ -69,6 +69,9 @@ class _ChatScreenState extends State<ChatScreen> {
 }
 
 class ChatMessage extends StatelessWidget {
+  ChatMessage({this.text});
+  final String text;
+
   @override
   Widget build(BuildContext context) {
     margin: EdgeInsets.symmetric(vertical: 10.0),
