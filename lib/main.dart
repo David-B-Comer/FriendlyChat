@@ -136,8 +136,14 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
           ),
           Container(
               margin: EdgeInsets.symmetric(horizontal: 4.0),
-              child: IconButton(
-                icon: const Icon(Icons.send),
+              child: Theme.of(context).platform == TargetPlatform.iOS ?
+              CupertinoButton(
+                child: Text('Send'),
+                onPressed: _isComposing
+                    ? () =>  _handleSubmitted(_textController.text)
+                    : null,) :
+              IconButton(
+              icon: const Icon(Icons.send),
                 onPressed: _isComposing
                     ? () => _handleSubmitted(_textController.text)
                     : null,
