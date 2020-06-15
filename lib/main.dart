@@ -103,7 +103,12 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
             Flexible(
               child: TextField(
                 controller: _textController,
-                onSubmitted: _handleSubmitted,
+            onChanged: (String text) {
+              setState(() {
+                _isComposing = text.length > 0;
+              });
+            },
+            onSubmitted: _isComposing ? _handleSubmitted : null,
                 decoration:
                 InputDecoration.collapsed(hintText: 'Send a message'),
                 focusNode: _focusNode,
