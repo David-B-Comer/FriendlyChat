@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +47,7 @@ class ChatMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizeTransition(
       sizeFactor:
-      CurvedAnimation(parent: animationController, curve: Curves.easeOut),
+          CurvedAnimation(parent: animationController, curve: Curves.easeOut),
       axisAlignment: 0.0,
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 10.0),
@@ -76,7 +77,7 @@ class ChatMessage extends StatelessWidget {
   }
 }
 
-    class ChatScreen extends StatefulWidget {
+class ChatScreen extends StatefulWidget {
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
@@ -90,9 +91,10 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('FriendlyChat'),
-          elevation:
-          Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0, ),
+      appBar: AppBar(
+        title: Text('FriendlyChat'),
+        elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
+      ),
       body: Column(
         children: [
           Flexible(
@@ -118,34 +120,30 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
       data: IconThemeData(color: Theme.of(context).accentColor),
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 8.0),
-        child: Row(
-          children: [
-            Flexible(
-              child: TextField(
-                controller: _textController,
-            onChanged: (String text) {
-              setState(() {
-                _isComposing = text.length > 0;
-              });
-            },
-            onSubmitted: _isComposing ? _handleSubmitted : null,
-                decoration:
-                InputDecoration.collapsed(hintText: 'Send a message'),
-                focusNode: _focusNode,
-              ),
+        child: Row(children: [
+          Flexible(
+            child: TextField(
+              controller: _textController,
+              onChanged: (String text) {
+                setState(() {
+                  _isComposing = text.length > 0;
+                });
+              },
+              onSubmitted: _isComposing ? _handleSubmitted : null,
+              decoration: InputDecoration.collapsed(hintText: 'Send a message'),
+              focusNode: _focusNode,
             ),
-            Container(
+          ),
+          Container(
               margin: EdgeInsets.symmetric(horizontal: 4.0),
               child: IconButton(
-                  icon: const Icon(Icons.send),
+                icon: const Icon(Icons.send),
                 onPressed: _isComposing
                     ? () => _handleSubmitted(_textController.text)
                     : null,
-              )
-            ),
-      ]
-        ),
-    ),
+              )),
+        ]),
+      ),
     );
   }
 
