@@ -131,6 +131,9 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
 
   void _handleSubmitted(String text) {
     _textController.clear();
+    setState(() {
+      _isComposing = false;
+    });
     ChatMessage message = ChatMessage(
       text: text,
       animationController: AnimationController(
